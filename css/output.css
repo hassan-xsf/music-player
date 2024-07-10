@@ -14,6 +14,10 @@
   top: 1.5rem;
 }
 
+.order-last {
+  order: 9999;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -129,18 +133,6 @@
 
 .w-screen {
   width: 100vw;
-}
-
-.w-5 {
-  width: 1.25rem;
-}
-
-.w-12 {
-  width: 3rem;
-}
-
-.w-14 {
-  width: 3.5rem;
 }
 
 .max-w-4xl {
@@ -271,14 +263,17 @@
   --tw-bg-opacity: 0.15;
 }
 
+.bg-opacity-100 {
+  --tw-bg-opacity: 1;
+}
+
+.bg-opacity-90 {
+  --tw-bg-opacity: 0.9;
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
-}
-
-.object-fill {
-  -o-object-fit: fill;
-     object-fit: fill;
 }
 
 .p-5 {
@@ -921,6 +916,28 @@ video {
   --tw-contain-style:  ;
 }
 
+.hover\:scale-150:hover {
+  --tw-scale-x: 1.5;
+  --tw-scale-y: 1.5;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:scale-125:hover {
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:bg-red-900:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-red-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-opacity-10:hover {
   --tw-bg-opacity: 0.1;
 }
@@ -938,6 +955,24 @@ video {
 
   .md\:max-w-sm {
     max-width: 24rem;
+  }
+
+  .md\:hover\:scale-125:hover {
+    --tw-scale-x: 1.25;
+    --tw-scale-y: 1.25;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .md\:hover\:scale-110:hover {
+    --tw-scale-x: 1.1;
+    --tw-scale-y: 1.1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .md\:focus\:scale-150:focus {
+    --tw-scale-x: 1.5;
+    --tw-scale-y: 1.5;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 }
 
