@@ -107,9 +107,13 @@ async function loadSongsList() {
 }
 
 async function main() {
+    document.querySelector(".song-list").classList.add("animate-pulse")
+    document.querySelector(".side-bar").classList.add("animate-pulse")
     await loadSongsList();
     updateSongsPage();
     UpdateSecondMenu(0)
+    document.querySelector(".song-list").classList.remove("animate-pulse")
+    document.querySelector(".side-bar").classList.remove("animate-pulse")
 }
 
 findPossiblePages = () => Math.ceil(totalSongs/7)
