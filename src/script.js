@@ -147,7 +147,7 @@ function updateSongsPage(page = 1) {
                 </div>
                 <div class = "absolute right-1 top-1 flex flex-col gap-1 items-center justify-center xl:flex-row xl:gap-10 xl:right-12 xl:top-6">
                     <span class = "text-white text-[0.5rem] sm:text-sm">${secondsToFancyTime(songDuration[i])}</span>
-                    <img class = "w-[50%] sm:w-[100%]" src = "../assets/heart-light.png">
+                    <img class = "w-[50%] sm:w-[100%]" src = "https://i.ibb.co/Cv6Bjjz/heart-light.png">
                 </div>
             </div>
         `
@@ -159,10 +159,10 @@ function updateSongsPage(page = 1) {
         <div class = "flex gap-5 justify-center items-center">
             <div class = "md:hover:scale-110 next-btn cursor-pointer py-2 px-4 max-w-4xl rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
                 <span class = "font-bold text-sm sm:text-xl">NEXT</span>
-                <img class = "w-6 " src = "../assets/nextwhite.png">
+                <img class = "w-6 " src = "https://i.ibb.co/TWdHNc0/nextwhite.png">
             </div>
             <div class = "md:hover:scale-110 prev-btn cursor-pointer py-2 px-4 max-w-4xl rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
-                <img class = "w-6" src = "../assets/previouswhite.png">
+                <img class = "w-6" src = "https://i.ibb.co/9tJJmWP/previouswhite.png">
                 <span class = "font-bold text-sm sm:text-xl">PREVIOUS</span>
             </div>
         </div>
@@ -206,7 +206,7 @@ function pauseSong(reset = 1) {
             currentAudio.currentTime = 0;
             currentAudio = null;
         }
-        document.querySelector(".play-song").src = "../assets/playicon.png";
+        document.querySelector(".play-song").src = "https://i.ibb.co/rtz1rNr/playicon.png";
     }
 }
 function playSong(id = -1, forced = false) {
@@ -245,7 +245,7 @@ function playSong(id = -1, forced = false) {
     else {
         currentAudio.play();
     }
-    document.querySelector(".play-song").src = "../assets/pauseicon.png";
+    document.querySelector(".play-song").src = "https://i.ibb.co/HNWkdgm/pauseicon.png";
     currentAudio.volume = volume / 100;
 }
 function findIDbyElement(ele) {
@@ -274,9 +274,9 @@ function UpdateSecondMenu(i) {
         </div>
         <div class = "flex flex-col gap-2">
         <div class = "flex justify-center items-center gap-5">
-            <img class = "previous-song h-8 cursor-pointer lg:h-10" src = "../assets/songprevious.png">
-            <img class = "play-song w-12 cursor-pointer lg:w-16" src = "../assets/playicon.png">
-            <img class = "next-song h-8 cursor-pointer lg:h-10" src = "../assets/songnext.png">
+            <img class = "previous-song h-8 cursor-pointer lg:h-10" src = "https://i.ibb.co/RTN3bXD/songprevious.png">
+            <img class = "play-song w-12 cursor-pointer lg:w-16" src = "https://i.ibb.co/rtz1rNr/playicon.png">
+            <img class = "next-song h-8 cursor-pointer lg:h-10" src = "https://i.ibb.co/30VLj4c/songnext.png">
         </div>
             <div class = "flex justify-center gap-3 text-white items-center">
                 <span class = "curr-time text-xs lg:text-base">0:00</span>
