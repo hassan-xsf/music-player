@@ -73,7 +73,7 @@ let currentAudio = null;
 let autoPlay = true;
 let volume = 100;
 
-
+let promises = [];
 
 
 async function loadSongsList() {
@@ -139,15 +139,15 @@ function updateSongsPage(page = 1) {
             const innerSongHTML = `
             <div class = "box-${i} boxes bg-gray-100 bg-opacity-15 rounded-md flex relative hover:bg-opacity-10 cursor-pointer">
                 <div class = "flex flex-row gap-2 items-center justify-start ml-3">
-                    <img class = "rounded-lg w-16" src = "${songLogo[i]}">
+                    <img class = "rounded-lg w-8 sm:w-16" src = "${songLogo[i]}">
                     <div class = "flex flex-col gap-1">
-                        <span class = "text-sm text-white font-bold">${songNames[i]}</span>
-                        <span class = "text-xs text-white font-light">By ${songArtist[i]}</span>
+                        <span class = "text-xs text-white font-bold sm:text-sm">${songNames[i]}</span>
+                        <span class = "text-[0.5rem] text-white font-light sm:text-xs">By ${songArtist[i]}</span>
                     </div>
                 </div>
-                <div class = "absolute right-12 top-6 flex gap-10 items-center justify-center">
-                    <span class = "text-white text-sm">${secondsToFancyTime(songDuration[i])}</span>
-                    <img src = "../assets/heart-light.png">
+                <div class = "absolute right-1 top-1 flex flex-col gap-1 items-center justify-center xl:flex-row xl:gap-10 xl:right-12 xl:top-6">
+                    <span class = "text-white text-[0.5rem] sm:text-sm">${secondsToFancyTime(songDuration[i])}</span>
+                    <img class = "w-[50%] sm:w-[100%]" src = "../assets/heart-light.png">
                 </div>
             </div>
         `
@@ -155,15 +155,15 @@ function updateSongsPage(page = 1) {
         }
     }
     document.querySelector(".song-list").innerHTML += 
-    `<div class = "flex justify-center items-center max-w-4xl gap-5 order-last">
+    `<div class = "flex justify-center items-center gap-5 order-last">
         <div class = "flex gap-5 justify-center items-center">
-            <div class = "md:hover:scale-110 next-btn cursor-pointer py-2 px-4 w-w-[60%] rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
-                <span class = "font-bold">NEXT</span>
+            <div class = "md:hover:scale-110 next-btn cursor-pointer py-2 px-4 max-w-4xl rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
+                <span class = "font-bold text-sm sm:text-xl">NEXT</span>
                 <img class = "w-6 " src = "../assets/nextwhite.png">
             </div>
-            <div class = "md:hover:scale-110 prev-btn cursor-pointer py-2 px-4 w-[60%] rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
+            <div class = "md:hover:scale-110 prev-btn cursor-pointer py-2 px-4 max-w-4xl rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
                 <img class = "w-6" src = "../assets/previouswhite.png">
-                <span class = "font-bold">PREVIOUS</span>
+                <span class = "font-bold text-sm sm:text-xl">PREVIOUS</span>
             </div>
         </div>
     </div>`;
@@ -262,35 +262,35 @@ function UpdateSecondMenu(i) {
     if(!songNames[i]) return false;
     document.querySelector(".side-bar").innerHTML = "";
     const secondMenuHTML = `
-    <div class = "flex flex-col items-center">
-        <div class="w-full max-w-xs md:max-w-sm lg:max-w-md flex items-center justify-center ">
+    <div class = "flex flex-row justify-center items-center lg:flex-col lg:justify-normal">
+        <div class="w-1/2 lg:max-w-md lg:w-full flex items-center justify-center ">
             <img class = "w-5/6 h-auto object-contain rounded-md border-black border-2" src = "${songLogo[i]}">
         </div>
     </div>
-    <div class = "flex flex-col gap-24">
+    <div class = "flex flex-col gap-1 lg:gap-24">
         <div class = "flex flex-col gap-2 mt-4 ml-5 justify-start">
-            <span class = "self-start text-2xl text-white font-bold">${songNames[i]}</span>
-            <span class = "text-sm text-white font-light">By ${songArtist[i]}</span>
+            <span class = "self-start md:text-xl lg:text-2xl text-white font-bold">${songNames[i]}</span>
+            <span class = "text-xs lg:text-sm text-white font-light">By ${songArtist[i]}</span>
         </div>
         <div class = "flex flex-col gap-2">
         <div class = "flex justify-center items-center gap-5">
-            <img class = "previous-song -10 h-10 cursor-pointer" src = "../assets/songprevious.png">
-            <img class = "play-song w-16 cursor-pointer" src = "../assets/playicon.png">
-            <img class = "next-song w-10 h-10 cursor-pointer" src = "../assets/songnext.png">
+            <img class = "previous-song h-8 cursor-pointer lg:h-10" src = "../assets/songprevious.png">
+            <img class = "play-song w-12 cursor-pointer lg:w-16" src = "../assets/playicon.png">
+            <img class = "next-song h-8 cursor-pointer lg:h-10" src = "../assets/songnext.png">
         </div>
             <div class = "flex justify-center gap-3 text-white items-center">
-                <span class = "curr-time">0:00</span>
+                <span class = "curr-time text-xs lg:text-base">0:00</span>
                 <input class = "audiobar transparent h-[10px] w-[70%] [&::-webkit-slider-thumb]:w-[50px] cursor-pointer appearance-auto accent-white " type = "range" min = "0" max = ${songDuration[i]} value = "0">
-                <span class = "tott-time">${secondsToFancyTime(songDuration[i])}</span>
+                <span class = "tott-time text-xs lg:text-base">${secondsToFancyTime(songDuration[i])}</span>
             </div>
-            <div class = "flex mt-16 flex-col justify-center items-center xl:flex-row">
+            <div class = "flex mt-1 flex-col justify-center items-center xl:flex-row lg:mt-16">
                 <div class = "flex flex-nowrap">
                     <label class = "select-none">
-                    <input type="checkbox" class="accent-black autoplay" ${autoPlay ? "checked" : "unchecked"}> <span class = "text-white">Autoplay</span>
+                    <input type="checkbox" class="accent-black autoplay" ${autoPlay ? "checked" : "unchecked"}> <span class = "text-white text-xs lg:text-base">Autoplay</span>
                     </label>
                 </div>
                 <div class = "flex justify-center items-center text-white gap-4 xl:justify-end">
-                    <span class = "volText">VOL. ${volume}%</span>
+                    <span class = "volText text-xs lg:text-base">VOL. ${volume}%</span>
                     <input class = "volBar transparent h-[10px] w-[30%]  cursor-pointer appearance-auto accent-white " type = "range" min = "0" max = "100" value = "${volume}">
                 </div>
             </div>
