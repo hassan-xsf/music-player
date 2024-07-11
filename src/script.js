@@ -75,6 +75,29 @@ let volume = 100;
 
 let promises = [];
 
+let logoText = ["Dynamic audio player" , "Made by Hassan :)" , "Created using Tailwind CSS , Javacsript"]
+let logoCurrent = 0;
+let logoTextPos = 0;
+let logoPause = false;
+
+setInterval(() => {
+    if(!logoPause)
+    {
+        const ele = document.querySelector(".adv")
+        const text = logoText[logoCurrent];
+        ele.innerText = text.slice(0, logoTextPos);
+        logoTextPos++;
+        if(logoTextPos > logoText[logoCurrent].length)
+        {
+            logoCurrent = logoCurrent+1 > logoText.length-1 ? 0 : logoCurrent+1;
+            logoTextPos = 0;
+            logoPause = true;
+            setTimeout(() => {
+                logoPause = false;
+            } , 2000)
+        }
+    }
+} , 100)
 
 async function loadSongsList() {
     const pageContains = 8;
