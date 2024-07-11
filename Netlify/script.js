@@ -262,38 +262,36 @@ function UpdateSecondMenu(i) {
     if(!songNames[i]) return false;
     document.querySelector(".side-bar").innerHTML = "";
     const secondMenuHTML = `
-    <div class = "flex mx-auto flex-col">
-        <div class = "flex flex-row justify-center items-center lg:flex-col lg:justify-normal">
-            <div class="w-1/2 lg:max-w-md lg:w-full flex items-center justify-center ">
-                <img class = "w-5/6 h-auto object-contain rounded-md border-black border-2" src = "${songLogo[i]}">
-            </div>
+    <div class = "flex flex-row justify-center items-center lg:flex-col lg:justify-normal">
+        <div class="w-1/2 lg:max-w-md lg:w-full flex items-center justify-center ">
+            <img class = "w-5/6 h-auto object-contain rounded-md border-black border-2" src = "${songLogo[i]}">
         </div>
-        <div class = "flex flex-col gap-1 lg:gap-15">
-            <div class = "flex flex-col gap-2 mt-4 ml-5 justify-start">
-                <span class = "self-start md:text-xl lg:text-2xl text-white font-bold">${songNames[i]}</span>
-                <span class = "text-xs lg:text-sm text-white font-light">By ${songArtist[i]}</span>
+    </div>
+    <div class = "flex flex-col gap-1 lg:gap-24">
+        <div class = "flex flex-col gap-2 mt-4 ml-5 justify-start">
+            <span class = "self-start md:text-xl lg:text-2xl text-white font-bold">${songNames[i]}</span>
+            <span class = "text-xs lg:text-sm text-white font-light">By ${songArtist[i]}</span>
+        </div>
+        <div class = "flex flex-col gap-2">
+        <div class = "flex justify-center items-center gap-5">
+            <img class = "previous-song h-8 cursor-pointer lg:h-10" src = "https://i.ibb.co/RTN3bXD/songprevious.png">
+            <img class = "play-song w-12 cursor-pointer lg:w-16" src = "https://i.ibb.co/rtz1rNr/playicon.png">
+            <img class = "next-song h-8 cursor-pointer lg:h-10" src = "https://i.ibb.co/30VLj4c/songnext.png">
+        </div>
+            <div class = "flex justify-center gap-3 text-white items-center">
+                <span class = "curr-time text-xs lg:text-base">0:00</span>
+                <input class = "audiobar transparent h-[10px] w-[70%] [&::-webkit-slider-thumb]:w-[50px] cursor-pointer appearance-auto accent-white " type = "range" min = "0" max = ${songDuration[i]} value = "0">
+                <span class = "tott-time text-xs lg:text-base">${secondsToFancyTime(songDuration[i])}</span>
             </div>
-            <div class = "flex flex-col gap-2">
-            <div class = "flex justify-center items-center gap-5">
-                <img class = "previous-song h-8 cursor-pointer lg:h-10" src = "https://i.ibb.co/RTN3bXD/songprevious.png">
-                <img class = "play-song w-12 cursor-pointer lg:w-16" src = "https://i.ibb.co/rtz1rNr/playicon.png">
-                <img class = "next-song h-8 cursor-pointer lg:h-10" src = "https://i.ibb.co/30VLj4c/songnext.png">
-            </div>
-                <div class = "flex justify-center gap-3 text-white items-center">
-                    <span class = "curr-time text-xs lg:text-base">0:00</span>
-                    <input class = "audiobar transparent h-[10px] w-[70%] [&::-webkit-slider-thumb]:w-[50px] cursor-pointer appearance-auto accent-white " type = "range" min = "0" max = ${songDuration[i]} value = "0">
-                    <span class = "tott-time text-xs lg:text-base">${secondsToFancyTime(songDuration[i])}</span>
+            <div class = "flex mt-1 flex-col justify-center items-center xl:flex-row lg:mt-16">
+                <div class = "flex flex-nowrap">
+                    <label class = "select-none">
+                    <input type="checkbox" class="accent-black autoplay" ${autoPlay ? "checked" : "unchecked"}> <span class = "text-white text-xs lg:text-base">Autoplay</span>
+                    </label>
                 </div>
-                <div class = "flex -mt-2 flex-row justify-center items-center sm:mt-1 sm:flex-col xl:flex-row lg:mt-5">
-                    <div class = "flex flex-nowrap">
-                        <label class = "select-none">
-                        <input type="checkbox" class="accent-black autoplay" ${autoPlay ? "checked" : "unchecked"}> <span class = "text-white text-xs lg:text-base">Autoplay</span>
-                        </label>
-                    </div>
-                    <div class = "flex justify-center items-center text-white gap-4 xl:justify-end">
-                        <span class = "volText text-xs lg:text-base">VOL. ${volume}%</span>
-                        <input class = "volBar transparent h-[10px] w-[30%]  cursor-pointer appearance-auto accent-white " type = "range" min = "0" max = "100" value = "${volume}">
-                    </div>
+                <div class = "flex justify-center items-center text-white gap-4 xl:justify-end">
+                    <span class = "volText text-xs lg:text-base">VOL. ${volume}%</span>
+                    <input class = "volBar transparent h-[10px] w-[30%]  cursor-pointer appearance-auto accent-white " type = "range" min = "0" max = "100" value = "${volume}">
                 </div>
             </div>
         </div>
