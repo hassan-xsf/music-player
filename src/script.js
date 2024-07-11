@@ -73,6 +73,9 @@ let currentAudio = null;
 let autoPlay = true;
 let volume = 100;
 
+
+
+
 async function loadSongsList() {
     const pageContains = 8;
     let count = 0;
