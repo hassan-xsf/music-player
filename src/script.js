@@ -161,11 +161,11 @@ function updateSongsPage(page = 1) {
     document.querySelector(".song-list").innerHTML += 
     `<div class = "flex justify-center items-center gap-5 order-last">
         <div class = "flex gap-5 justify-center items-center">
-            <div class = "md:hover:scale-110 next-btn cursor-pointer py-2 px-4 max-w-4xl rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
+            <div class = "select-none md:hover:scale-110 next-btn cursor-pointer py-2 px-4 max-w-4xl rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
                 <span class = "font-bold text-sm sm:text-xl">NEXT</span>
                 <img class = "w-6 " src = "https://i.ibb.co/TWdHNc0/nextwhite.png">
             </div>
-            <div class = "md:hover:scale-110 prev-btn cursor-pointer py-2 px-4 max-w-4xl rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
+            <div class = "select-none md:hover:scale-110 prev-btn cursor-pointer py-2 px-4 max-w-4xl rounded-md bg-gray-100 bg-opacity-15 text-white flex items-center gap-5">
                 <img class = "w-6" src = "https://i.ibb.co/9tJJmWP/previouswhite.png">
                 <span class = "font-bold text-sm sm:text-xl">PREVIOUS</span>
             </div>
